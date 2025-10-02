@@ -1,7 +1,7 @@
 # Privacy Policy – BonzAI
 Last updated: September 15, 2025
 
-The protection of your personal data is a priority for us. Here is how HomeMind processes your information.
+The protection of your personal data is a priority for us. Here is how BonzAI processes your information.
 
 ## 1. Data collected
 - **Local data:** your conversations, files, and documents are processed directly on your device.
