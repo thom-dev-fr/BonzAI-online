@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>BonzAI App</title>
+  </head>
+  <body>
+    <script>
+      // Récupère tous les paramètres de l'URL
+      const params = new URLSearchParams(window.location.search);
+      // Redirige vers votre URL scheme avec les paramètres
+      window.location.href = "bonzai://callback?" + params.toString();
+    </script>
+    <p>Redirection vers l'application...</p>
+  </body>
+</html>
