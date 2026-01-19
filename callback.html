@@ -8,8 +8,24 @@
     <script>
       // Récupère tous les paramètres de l'URL
       const params = new URLSearchParams(window.location.search);
-      // Redirige vers votre URL scheme avec les paramètres
-      window.location.href = "bonzai://callback?" + params.toString();
+      
+      // Variable pour stocker l'ID du timeout
+      let redirectTimeout;
+      
+      // Redirige vers votre URL scheme avec les paramètres après 5 secondes
+      redirectTimeout = setTimeout(() => {
+        window.location.href = "bonzai://callback?" + params.toString();
+      }, 5000);
+      
+      // Annule la redirection si l'utilisateur quitte la page
+      window.addEventListener('beforeunload', () => {
+        clearTimeout(redirectTimeout);
+      });
+      
+      // Annule également si la page perd le focus (optionnel)
+      window.addEventListener('blur', () => {
+        clearTimeout(redirectTimeout);
+      });
     </script>
     <p>Redirection vers l'application...</p>
   </body>
