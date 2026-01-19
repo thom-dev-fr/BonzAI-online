@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -6,36 +6,10 @@
   </head>
   <body>
     <script>
-      // Récupère tous les paramètres de l'URL
       const params = new URLSearchParams(window.location.search);
-      
-      // Construit l'URL de redirection
       const redirectUrl = "bonzai://callback?" + params.toString();
-      
-      // Affiche l'URL dans la page
-      document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('redirectUrl').textContent = redirectUrl;
-      });
-      
-      // Variable pour stocker l'ID du timeout
-      let redirectTimeout;
-      
-      // Redirige vers votre URL scheme avec les paramètres après 5 secondes
-      redirectTimeout = setTimeout(() => {
-        window.location.href = redirectUrl;
-      }, 5000);
-      
-      // Annule la redirection si l'utilisateur quitte la page
-      window.addEventListener('beforeunload', () => {
-        clearTimeout(redirectTimeout);
-      });
-      
-      // Annule également si la page perd le focus (optionnel)
-      window.addEventListener('blur', () => {
-        clearTimeout(redirectTimeout);
-      });
+      window.location.href = redirectUrl;
     </script>
-    <p>Redirection vers l'application dans 5 secondes...</p>
-    <p>URL de redirection : <strong id="redirectUrl"></strong></p>
+    <p>Redirection vers l'application...</p>
   </body>
 </html>
